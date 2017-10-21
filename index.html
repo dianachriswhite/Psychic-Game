@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h1>The Psychic Game</h1>
+<br>
+<p>Guess what letter I'm thinking of</p>
+
+<div id=innerhtml></div>
+
+<script type="text/javascript">
+
+
+var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
+var wins = 0;
+
+var losses = 0;
+
+
+document.onkeyup = function () {
+	var playerLetter = String.fromCharCode(event.keyCode).toLowerCase();
+	
+	alert("Your Guess: " + playerLetter);
+
+
+
+var computerLetter = alphabet[Math.floor(Math.random()*alphabet.length)];
+alert(computerLetter);
+
+
+if (playerLetter==computerLetter){
+	wins++;
+	alert("wins: " + wins);
+	
+}
+
+else {
+	losses++; 
+	alert("losses " + losses);
+	
+	
+}
+
+
+ // for (var i= 8;i>0;i--) {
+ // 	alert("Guesses Left: " + i);
+ // } commented out because this loop isn't working properly :/
+
+
+var gameDisplay = "<p>Wins: " + wins + "</p>" +
+"<p>losses: " + losses + "</p>" +
+"<p>Your guesses: " + playerLetter + "</p>"
+document.querySelector('#innerhtml').innerHTML = gameDisplay;
+
+
+
+
+}
+
+
+
+
+
+	</script>
+
+
+
+
+</body>
+</html>
